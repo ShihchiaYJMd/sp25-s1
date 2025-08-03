@@ -28,11 +28,14 @@ public class SpeciesListStage implements AdventureStage {
         this.responses = Map.of("go", new PalindromeStage(in));
     }
 
+
     @Override
     public String nextStagePrompt() {
         return "Wow! That was pretty neat! We got to see so many neat animals! " +
                 "We should study now, so let's go to the Woz.";
     }
+
+
 
     @Override
     public void playStage() {
@@ -95,6 +98,9 @@ public class SpeciesListStage implements AdventureStage {
     public static int arraySimilarity(List<String> listOne, List<String> listTwo) {
         List<String> copy = new ArrayList<>(listOne);
         int similarObjects = 0;
+        if (copy.isEmpty()) {
+            return 1;
+        }
         for (String o : listTwo) {
             if (copy.contains(o)) {
                 similarObjects++;
